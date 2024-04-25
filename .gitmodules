@@ -14,3 +14,7 @@
 	path = tacred-relation
 	url = https://github.com/chuyg1005/tacred-relation
 	branch = master
+[submodule "luke"]
+	path = luke
+	url = https://github.com/chuyg1005/luke
+	branch = master
