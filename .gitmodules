@@ -1,0 +1,16 @@
+[submodule "RE_improved_baseline"]
+	path = RE_improved_baseline
+	url = https://github.com/chuyg1005/RE_improved_baseline
+	branch = main
+[submodule "SpanBERT"]
+	path = SpanBERT
+	url = https://github.com/chuyg1005/SpanBERT
+	branch = main
+[submodule "gcn-over-pruned-trees"]
+	path = gcn-over-pruned-trees
+	url = https://github.com/chuyg1005/gcn-over-pruned-trees
+	branch = master
+[submodule "tacred-relation"]
+	path = tacred-relation
+	url = https://github.com/chuyg1005/tacred-relation
+	branch = master
