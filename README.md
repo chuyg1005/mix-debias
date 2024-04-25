@@ -8,10 +8,13 @@ Download tacrev's dev_rev.json, test_rev.json, and put them into data/tacred
 
 Download retacred dataset, and put train.json, dev.json, test.json into data/retacred
 
+The entity-dict-wiki.json is collected by us from wikidata, and it will be used to generate the challenge data.
+
 The data directory should be like this:
 
 ```tree
 data
+├── entity-dict-wiki.json
 ├── retacred
 │   ├── dev.json
 │   ├── test.json
@@ -22,7 +25,6 @@ data
     ├── test.json
     ├── test_rev.json
     └── train.json
-
 ```
 
 The output of all models will be saved into the results directory.
