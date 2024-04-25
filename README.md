@@ -29,41 +29,52 @@ data
 
 The output of all models will be saved into the results directory.
 
-## 2. Generate training data
+## 2. Environment setup
+
+create the python virtual environment by executing the scripts/install_env.sh (This file is just a wrapper of the
+environment installation script of LUKE for simplify usage)
+
+environment name should be any valid name for the conda environment, we will refer to it as <env_name> in the following
+
+```bash
+bash install_env.sh <env_name>
+```
+
+## 3. Generate training data
 
 ```bash
 bash preprocess/gen_train_files.sh
 ```
 
-## 3. Generate challenge data for OOD evaluation
+## 4. Generate challenge data for OOD evaluation
 
-### 3.1 ours challenge data generation
+### 4.1 ours challenge data generation
 
-#### 3.1.1 prepare the model
+#### 4.1.1 prepare the model
 
 ```bash
-conda activate chuyg-39
+conda activate <env_name>
 cd RE_improved_baseline
 bash scripts/train.sh 0 tacred EntityOnly
 bash scripts/train.sh 1 retacred EntityOnly
 ```
 
-#### 3.1.2 generate the challenge data
+#### 4.1.2 generate the challenge data
 
 ```bash
 bash preprocess/gen_challenge_files.sh 0 tacred 64
 bash preprocess/gen_challenge_files.sh 1 retacred 64
 ```
 
-### 3.2 CoRE challenge data generation
+### 4.2 CoRE challenge data generation
 
 > The CoRE challenge data generation is based on the entity-only setting. We first train the model under the default setting, and then generate the counterfactual samples based on the model's predictions under the entity-only setting.
 
-#### 3.2.1 Train model under the default setting
+#### 4.2.1 Train model under the default setting
 
 ```bash
 # for IBRE
-conda activate chuyg-39
+conda activate <env_name>
 cd RE_improved_baseline
 bash scripts/train.sh 0 tacred default
 bash scripts/train.sh 1 retacred default
@@ -71,17 +82,17 @@ bash scripts/train.sh 1 retacred default
 
 ```bash
 # for LUKE
-conda activate chuyg-luke
+conda activate <env_name>
 cd luke
 bash scripts/train.sh 0 tacred default
 bash scripts/train.sh 1 retacred default
 ```
 
-#### 3.2.2 Generate entity-only predictions
+#### 4.2.2 Generate entity-only predictions
 
 ```bash
 # for IBRE
-conda activate chuyg-39
+conda activate <env_name>
 cd RE_improved_baseline
 bash scripts/gen_eo_prob.sh 0 tacred default
 bash scripts/gen_eo_prob.sh 0 retacred default
@@ -89,20 +100,20 @@ bash scripts/gen_eo_prob.sh 0 retacred default
 
 ```bash
 # for LUKE
-conda activate chuyg-luke
+conda activate <env_name>
 cd luke
 bash scripts/gen_eo_prob.sh 0 tacred default
 bash scripts/gen_eo_prob.sh 0 retacred default
 ```
 
-#### 3.2.3 Generate counterfactual samples based on the entity-only predictions
+#### 4.2.3 Generate counterfactual samples based on the entity-only predictions
 
 ```bash
 bash preprocess/gen_counterfactual.sh tacred
 bash preprocess/gen_counterfactual.sh retacred
 ```
 
-## 4. Debiasing methods
+## 5. Debiasing methods
 
 Our mix-debias method support IBRE(RE_improved_baseline) and LUKE. The debiasing methods are implemented in
 the `RE_improved_baseline` and `luke` directories. The debiasing methods include:
@@ -120,7 +131,7 @@ the `RE_improved_baseline` and `luke` directories. The debiasing methods include
 
 Please refer to the `RE_improved_baseline` and `luke` directories for more details.
 
-## 5. How to clone this repository
+## 6. How to clone this repository
 
 This repository contains submodules. To clone this repository, please use the following command:
 
