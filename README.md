@@ -98,3 +98,11 @@ the `RE_improved_baseline` and `luke` directories. The debiasing methods include
 * MixDebias: debiasing method proposed by us
 
 Please refer to the `RE_improved_baseline` and `luke` directories for more details.
+
+## 5. How to clone this repository
+
+This repository contains submodules. To clone this repository, please use the following command:
+
+```bash
+git clone --recurse-submodules <repository-url>
+```
