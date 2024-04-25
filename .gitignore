@@ -1,0 +1,6 @@
+lda/
+plots/
+.idea/
+.DS_Store
+tmp/
+llm/
