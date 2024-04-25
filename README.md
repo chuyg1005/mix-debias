@@ -8,6 +8,25 @@ Download tacrev's dev_rev.json, test_rev.json, and put them into data/tacred
 
 Download retacred dataset, and put train.json, dev.json, test.json into data/retacred
 
+The data directory should be like this:
+
+```tree
+data
+├── retacred
+│   ├── dev.json
+│   ├── test.json
+│   └── train.json
+└── tacred
+    ├── dev.json
+    ├── dev_rev.json
+    ├── test.json
+    ├── test_rev.json
+    └── train.json
+
+```
+
+The output of all models will be saved into the results directory.
+
 ## 2. Generate training data
 
 ```bash

@@ -1,1 +1,2 @@
-ln -s /home/data_91_d/chuyg/mix-debias/data data
+data_dir="../data"
+ln -s ${data_dir} data
